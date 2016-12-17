@@ -9,14 +9,20 @@ Live at [Arnoldson.online](https://arnoldson.online/projects/currency/) or [GitH
 
 
 ### Technologies
-  * CSS, HTML, JS.
-  * jQuery.
-  * Sass.
-  * Font Awesome.
+  * CSS, HTML, JS
+  * Sass
+  * jQuery
+  * accounting.js (Open Exchange Rates)
+  * Font Awesome
+
+### APIs used
+  * [Fixer.io](http://fixer.io/)
+  * [Quandl](https://www.quandl.com/)
 
 
 ### Method
 
+Mobile first design. 
 
 
 ### Report
