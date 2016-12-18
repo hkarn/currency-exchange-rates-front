@@ -16,13 +16,13 @@ Live at [Arnoldson.online](https://arnoldson.online/projects/currency/) or [GitH
   * Font Awesome
 
 ### APIs used
-  * [Fixer.io](http://fixer.io/)
-  * [Quandl](https://www.quandl.com/)
+  * [Coinbase](https://developers.coinbase.com/api/v2)
+  * [IPinfo](https://ipinfo.io)
 
 
 ### Method
 
-Mobile first design. 
+Mobile first design.
 
 
 ### Report

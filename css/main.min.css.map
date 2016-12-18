@@ -5,8 +5,8 @@
 		"scss/main.scss"
 	],
 	"sourcesContent": [
-		""
+		".currencylist {\r\n  font-family: monospace;\r\n  font-size: .9em;\r\n}\r\n"
 	],
-	"mappings": "",
+	"mappings": "AAAA,AAAA,aAAa,AAAC,CACZ,WAAW,CAAE,SAAU,CACvB,SAAS,CAAE,IAAK,CACjB",
 	"names": []
 }
