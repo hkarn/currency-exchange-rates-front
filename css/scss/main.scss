@@ -2,3 +2,65 @@
   font-family: monospace;
   font-size: .9em;
 }
+
+.styled-select {
+	width: 302px;
+   height: 30px;
+   overflow: hidden;
+   background: url("/img/selectarrow.png") no-repeat right;
+   border: none;
+   opacity: 1;
+   background-color: #999;
+   border-radius: 5px;
+}
+
+.styled-select select {
+   background: transparent;
+   width: 342px;
+   padding-bottom: 10px;
+   padding-left: 10px;
+   padding-top: 5px;
+
+   border: 0;
+  border-radius: 5px;
+   height: 34px;
+   -webkit-appearance: none;
+   font-weight: 200;
+    font-family: "lato", sans-serif;
+    font-size: 18px;
+}
+
+
+.styled-select select:focus {
+	outline: none;
+}
+
+/*
+.styled-select {
+    width: 300px;
+    height: 20px;
+    overflow: hidden;
+    border: none;
+    opacity: 0.9;
+    background-color: orange;
+    border-radius: 5px;
+ }
+
+.styled-select select {
+  background: transparent;
+  width: 300px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  font-weight: 200;
+  font-family: monospace;
+  font-size: .85em;
+ }
+
+ .styled-select select:focus {
+   outline: red;
+ }
+*/
