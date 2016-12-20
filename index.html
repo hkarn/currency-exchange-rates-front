@@ -9,43 +9,134 @@
   <title>Currency rates - Cross-rate tables and converter</title>
   <meta name="description" content="Currency cross-rates tables and converter.">
 
-  <!--<link rel="stylesheet" href="dependencies/normalize-5.0.0/normalize.min.css" />-->
+  <link rel="stylesheet" href="dependencies/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/main.min.css" />
 
 </head>
 <body>
-  <div class="styled-select">
-  	<select class="the-select">
-    <optgroup label="TECHNICIANS">
-      <option>Joe Smith</option>
-      <option>Joe White</option>
-    </optgroup>
-    <optgroup label="PRODUCERS">
-      <option>Jane Black</option>
-      <option>Cindy Gray</option>
-    </optgroup>
-  </select>
-  </div>
-
-
-  <div class="style-select">
-  <select>
-    <option>
-      Hello
-    </option>
-    <option>
-      BNT - jfjf
-    </option>
-    <option>
-      BII - jfjf
-    </option>
-  </select>
-  </div>
   <script src="dependencies/jquery-3.1.1/js/jquery-3.1.1.js"></script>
+  <script src="dependencies/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   <script src="dependencies/accounting-js-open-exchange-rates/accounting.min.js"></script>
   <script src="js/main.js"></script>
-  <input />
-  <ul class="currencylist"></ul>
-  <input />
-  <ul class="currencylist"></ul>
+
+  <nav id="main-nav">
+    <span class="spin">Forex <i class="fa fa-exchange" aria-hidden="true"></i></span>
+    <span class="hidden-xs menu-list">
+      <ul>
+        <li> | <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i> LinkedIn</a></li>
+        <li> | <a href="#"><i class="fa fa-folder-open" aria-hidden="true"></i> Portfolio</a></li>
+        <li> | <a href="#"><i class="fa fa-github-square" aria-hidden="true"></i> GitHub</a></li>
+      </ul>
+    </span>
+    <!--bootstrap dropdown -->
+    <span class="visible-xs-inline dropdown">
+      <button class="btn-default dropdown-toggle nav-drop-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Contact
+      <i class="fa fa-caret-down" aria-hidden="true"></i>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li>
+          <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i> LinkedIn</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-github-square" aria-hidden="true"></i> GitHub</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-folder-open" aria-hidden="true"></i> Portfolio</a>
+        </li>
+      </ul>
+    </span>
+    <!-- end bootstrap dropdown -->
+    <span> | <a href="#"><i class="fa fa-code-fork" aria-hidden="true"></i></a> | </span>
+    <span> <i class="fa fa-btc" aria-hidden="true"></i> 1 = <i class="fa fa-usd" aria-hidden="true"></i> <span id="bitcoin-price"><i class="fa fa-spinner fa-pulse fa-fw"></i></span></span>
+  </nav>
+
+
+  <header id="main-header">
+    <h1>Currency Converter and Cross-Rate Tables</h1>
+  </header>
+  <section class="loading">
+    <i class="fa fa-spinner fa-spin fa-5x fa-fw"></i>
+    <h4>Loading...</h4>
+  </section>
+  <section class="converter">
+    <header>
+      <h2>Convert a currency</h2>
+    </header>
+    <form action="">
+      <label for="from-currency-amount">Convert from</label>
+
+      <div>
+        <input class="form-in inline-md" type="text" id="from-currency-amount" placeholder="1 000.00" tabindex="1" />
+        <div class="styled-select inline-md">
+          <select id="from-currency" class="currencylist" tabindex="2">
+          </select>
+        </div>
+      </div>
+
+      <label for="to-currency">into</label>
+
+      <div>
+        <input class="form-in inline-md" type="text" id="answer-currency-amount" placeholder="1 000.00" tabindex="5" />
+        <div class="styled-select inline-md">
+          <select id="to-currency" class="currencylist" tabindex="3">
+        </select>
+        </div>
+      </div>
+      <button class="form-btn convert-btn" tabindex="4">Convert</button>
+
+    </form>
+  </section>
+
+  <section class="crossrates">
+    <header>
+      <h2>Generate a cross-rate table</h2>
+    </header>
+    <form action="">
+      <div class="clearfix columns">
+        <div class="first-column">
+          <label for="base-currencies">Base currencies (columns)</label>
+          <div class="multiple-select">
+            <select multiple id="base-currencies" class="currencylist" tabindex="6">
+            </select>
+          </div>
+          <footer class="multiple-select-instr">
+            Hold Ctrl to select multiple currencies.
+          </footer>
+        </div>
+
+        <div class="second-column">
+          <label for="pair-currencies">Pair currencies (rows)</label>
+          <div class="multiple-select">
+            <select multiple id="pair-currencies" class="currencylist" tabindex="7">
+            </select>
+          </div>
+          <footer class="multiple-select-instr">
+            Hold Ctrl to select multiple currencies.
+          </footer>
+        </div>
+      </div>
+      <button class="form-btn table-btn" tabindex="8">Open table</button>
+
+    </form>
+    <p>
+      You can also access the cross-rate table directly using the following url format:<br />
+      <a href="https://arnoldson.online/projects/currency/cross-rates.html?base=USD,GBP&pair=EUR,CHF,JPY,RUB" tabindex="9">https://arnoldson.online/projects/currency/cross-rate.html?base=USD,GBP&pair=EUR,CHF,JPY,RUB</a><br />
+      Just replace the currency codes with a coma seperated list of your choice for base and pair currencies.
+    </p>
+  </section>
+
+
+  <footer id="main-footer">
+    <p>
+      Assignment for Webapplications course at Lernia. YHJUST16 - Front-End Javascript Developer.
+    </p>
+    <p>
+      Powered by Coinbase and IPinfo.io
+    </p>
+    <p>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank"><i class="fa fa-creative-commons fa-1" aria-hidden="true"></i></a> Håkan Arnoldson
+    </p>
+  </footer>
+
 </body>

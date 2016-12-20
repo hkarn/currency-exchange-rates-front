@@ -1,66 +1,458 @@
-.currencylist {
-  font-family: monospace;
-  font-size: .9em;
-}
-
-.styled-select {
-	width: 302px;
-   height: 30px;
-   overflow: hidden;
-   background: url("/img/selectarrow.png") no-repeat right;
-   border: none;
-   opacity: 1;
-   background-color: #999;
-   border-radius: 5px;
-}
-
-.styled-select select {
-   background: transparent;
-   width: 342px;
-   padding-bottom: 10px;
-   padding-left: 10px;
-   padding-top: 5px;
-
-   border: 0;
-  border-radius: 5px;
-   height: 34px;
-   -webkit-appearance: none;
-   font-weight: 200;
-    font-family: "lato", sans-serif;
-    font-size: 18px;
-}
-
-
-.styled-select select:focus {
-	outline: none;
-}
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono');
+@import "../dependencies/font-awesome-4.7.0/css/font-awesome.min.css";
 
 /*
-.styled-select {
-    width: 300px;
-    height: 20px;
-    overflow: hidden;
-    border: none;
-    opacity: 0.9;
-    background-color: orange;
-    border-radius: 5px;
- }
-
-.styled-select select {
-  background: transparent;
-  width: 300px;
-  height: 20px;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  border-radius: 0;
-  -webkit-appearance: none;
-  font-weight: 200;
-  font-family: monospace;
-  font-size: .85em;
- }
-
- .styled-select select:focus {
-   outline: red;
- }
+Author: Håkan Arnoldson
+For Webaplications 1 at Lernia YH
 */
+
+/* VARIABLES */
+$default-focus-outline: rgba(50,0,0,0.3);
+
+/* Font stacks */
+$main-font-stack: 'Roboto', sans-serif;
+$monospace-font-stack: 'Roboto Mono', monospace;
+
+/* Nav */
+
+
+/* Form fields */
+$input-bg-color: orange;
+$button-bg-color: orange;
+$nav-bg-color: orange;
+$nav-color: white;
+$button-border: black solid 1px;
+$select-border: black solid 1px;
+$placeholder-text-color: rgba(240,240,240,0.7);
+
+/* SELECTORS */
+
+/* START PAGE */
+
+/* Global */
+
+* {
+  box-sizing: border-box;
+}
+
+.clearfix {
+  clear: both;
+}
+
+/* Tag Selectors */
+
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  font-family: $main-font-stack;
+  font-size: 16px;
+  overflow-y: scroll;
+
+
+  &::after {
+    content: "";
+    position:fixed;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    background-image: url("../img/mixture-69523_640.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: -1;
+    filter:grayscale(100%) blur(3px) brightness(135%) opacity(30%);
+  }
+}
+
+/* Media queries to get the right resolution background */
+
+@media screen and (min-width: 1280px) {
+  body::after {
+    background-image: url("../img/mixture-69523_1280.jpg");
+  }
+}
+
+//only for very large resolution devlices (more then standard desktop)
+@media screen and (min-width: 1921px) {
+  body::after {
+    background-image: url("../img/mixture-69523.jpg");
+  }
+}
+
+h1 {
+  margin: 0;
+  padding: 30px;
+  font-size: 4rem; //fall-back
+  font-size: 4.75vw;
+}
+
+/* Class Selectors */
+
+#main-nav {
+  display: none;
+  background-color: $nav-bg-color;
+  color: $nav-color;
+  width: 100%;
+  height: 25px;
+  border: $nav-color solid 1px;
+  padding: 1px 7px;
+  vertical-align: middle;
+  span {
+    margin: 0;
+  }
+  > span:first-child {
+    margin-right: 5vw;
+  }
+  > span:last-child, {
+    float: right;
+  }
+
+  a {
+    color: $nav-color;
+    text-decoration: none;
+
+    &:visited {
+      color: $nav-color;
+      text-decoration: none;
+    }
+
+    &:link {
+      color: $nav-color;
+      text-decoration: none;
+    }
+
+    &:hover {
+      border-bottom: $nav-color solid 3px;
+    }
+
+    &:focus {
+      outline: $nav-color dotted 1px;
+    }
+
+  }
+
+}
+
+.nav-drop-btn {
+  background-color: $nav-bg-color;
+  color: $nav-color;
+  border: none;
+  padding: 0 6px;
+  margin: 0;
+  height: 100%;
+  span {
+  vertical-align: middle;
+  }
+}
+
+.form-in {
+  vertical-align: bottom;
+  width: 370px;
+  height: 30px;
+  overflow: hidden;
+  background-color: $input-bg-color;
+  opacity: 0.95;
+  border-radius: 5px;
+  font-weight: bolder;
+  font-family: $monospace-font-stack;
+  font-size: 17px;
+  padding: 2px;
+  margin: 5px 0;
+  border: $select-border;
+  text-align: center;
+
+  //::placeholder is not well supported and will break if joined.
+
+  &::-webkit-input-placeholder {
+    color: $placeholder-text-color !important;
+  }
+  &::placeholder {
+    color: $placeholder-text-color !important;
+  }
+  &:-ms-input-placeholder {
+    color: $placeholder-text-color !important;
+  }
+  &::-moz-placeholder {
+    color: $placeholder-text-color !important;
+  }
+}
+
+.form-btn {
+  width: 370px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: $monospace-font-stack;
+  padding: 7px;
+  font-size: 19px;
+  margin: 14px 0 20px;
+  letter-spacing: 2px;
+  background-color: $button-bg-color;
+  border-radius: 5px;
+  border: $button-border;
+  box-shadow: 2px 2px grey;
+
+  &:hover {
+    box-shadow: none;
+    transform: translateX(2px) translateY(2px);
+  }
+}
+
+.loading,
+#main-header,
+.converter,
+.crossrates {
+  text-align: center;
+}
+
+.crossrates {
+  margin-top: 45px;
+}
+
+.converter,
+.crossrates {
+  display: none;
+
+  header {
+    margin: 0;
+    padding: 0;
+
+    h2 {
+      margin: 35px 0 15px;
+      padding: 2px;
+      font-size: 2.7rem;
+    }
+  }
+
+  label {
+    margin: 5px;
+    padding: 2px;
+    font-size: 2rem;
+  }
+
+  p {
+    margin: 15px 0;
+    padding: 2px;
+    font-size: .87rem;
+  }
+
+}
+
+#main-header {
+  padding-top: 90px;
+}
+
+.loading {
+  padding: 85px;
+}
+
+.multiple-select,
+.styled-select {
+
+  vertical-align: bottom;
+	width: 370px;
+  overflow: hidden;
+  background: url("../img/selectarrow.png") no-repeat right center;
+  background-size: 20px auto;
+  border: none;
+  opacity: 0.95;
+  background-color: $input-bg-color;
+  border-radius: 5px;
+  margin: 5px auto;
+
+  select {
+    vertical-align: bottom;
+    background: transparent;
+    width: 370px;
+    padding: 2px 8px;
+    border: $select-border;
+    border-radius: 5px;
+    height: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 300;
+    font-family: $monospace-font-stack;
+    font-size: 17px;
+  }
+}
+
+.styled-select {
+  height: 30px;
+}
+
+input:focus,
+button:focus {
+  box-shadow: 0 0 0 2px $default-focus-outline;
+}
+.styled-select:focus,
+.styled-select select:focus,
+.multiple-select:focus,
+.multiple-select select:focus {
+  outline-color: $default-focus-outline;
+  outline-width: 2px;
+  outline-style: solid;
+}
+
+.multiple-select select,
+.multiple-select {
+  background-image: none;
+}
+
+#main-footer {
+  padding-top: 30px;
+  text-align: center;
+  font-size: 0.72em;
+  color: rgb(75,75,75);
+  display: none;
+}
+
+.multiple-select-instr {
+  display: none;
+  text-align: center;
+  font-size: 0.76em;
+  color: grey;
+  font-style: italic;
+  padding: 0 18px;
+  margin: 0;
+}
+
+.menu-list {
+  ul {
+    list-style: none;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    display: inline-block;
+
+    li {
+      display: inline;
+      padding: 0;
+      border: 0;
+      margin: 0;
+
+    }
+  }
+}
+
+@-webkit-keyframes spinner {
+    from { -webkit-transform: rotateY(0deg);    }
+    to   { -webkit-transform: rotateY(-360deg); }
+  }
+
+@keyframes spinner {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+.spin {
+    display: inline-block;
+    -webkit-animation-name: spinner;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: 5;
+    -webkit-animation-duration: 6s;
+
+    animation-name: spinner;
+    animation-timing-function: linear;
+    animation-iteration-count: 5;
+    animation-duration: 6s;
+
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+  &:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+}
+
+
+
+/* Media Querys for 768 and larger */
+
+@media screen and (min-width: 768px) {
+
+  .inline-md {
+    display: inline-block;
+  }
+
+  .multiple-select-instr {
+    display: block;
+  }
+
+  .multiple-select,
+  .multiple-select select {
+    height: 250px;
+  }
+
+
+  .styled-select {
+    margin: 5px 1px;
+  }
+
+  .form-in {
+    width: 170px;
+    margin: 5px 1px;
+  }
+
+  .crossrates p {
+    font-size: 1.23rem;
+  }
+
+  .form-btn {
+
+  }
+
+}
+
+
+@media screen and (min-width: 943px) {
+
+  .multiple-select {
+    margin: 5px 1px;
+  }
+
+  .multiple-select-instr {
+    text-align: left;
+  }
+
+  .columns {
+    max-width: 980px;
+    min-width: 942px;
+    margin: auto;
+  }
+
+  .first-column,
+  .second-column {
+    box-sizing: content-box;
+    width: ((100%-(5%*4))/2);
+    padding: 5px 5%;
+    margin: 0;
+    min-width: 370px;
+
+    .multiple-select {
+      margin: 5px auto;
+    }
+  }
+
+  .first-column {
+    float: left;
+  }
+
+  .second-column {
+    float: right;
+  }
+
+  .crossrates p {
+    font-size: 1.5rem;
+  }
+
+}
