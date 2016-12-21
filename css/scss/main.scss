@@ -3,7 +3,7 @@
 
 /*
 Author: Håkan Arnoldson
-For Webaplications 1 at Lernia YH
+For Webaplications at Lernia YH
 */
 
 /* VARIABLES */
@@ -13,10 +13,7 @@ $default-focus-outline: rgba(50,0,0,0.3);
 $main-font-stack: 'Roboto', sans-serif;
 $monospace-font-stack: 'Roboto Mono', monospace;
 
-/* Nav */
-
-
-/* Form fields */
+/* Colours */
 $input-bg-color: orange;
 $button-bg-color: orange;
 $nav-bg-color: orange;
@@ -26,8 +23,6 @@ $select-border: black solid 1px;
 $placeholder-text-color: rgba(240,240,240,0.7);
 
 /* SELECTORS */
-
-/* START PAGE */
 
 /* Global */
 
@@ -151,6 +146,32 @@ h1 {
   }
 }
 
+.dropdown-menu {
+  background-color: $nav-bg-color;
+  color: $nav-color;
+
+  a:hover,
+  a:focus {
+    border:none !important;
+    background-color: rgba(180,180,180,0.85) !important;
+  }
+}
+
+#dropdownMenu1 {
+  /* override bootstrap defaults */
+  background-color: $nav-bg-color;
+  color: $nav-color;
+
+  &:focus,
+  &:hover,
+  &:active {
+  background-color: rgba(180,180,180,0.5);
+  box-shadow: none;
+  }
+}
+
+
+
 .form-in {
   vertical-align: bottom;
   width: 370px;
@@ -238,7 +259,7 @@ h1 {
   p {
     margin: 15px 0;
     padding: 2px;
-    font-size: .87rem;
+    font-size: 1rem;
   }
 
 }
@@ -357,12 +378,12 @@ button:focus {
     display: inline-block;
     -webkit-animation-name: spinner;
     -webkit-animation-timing-function: linear;
-    -webkit-animation-iteration-count: 5;
+    -webkit-animation-iteration-count: 3;
     -webkit-animation-duration: 6s;
 
     animation-name: spinner;
     animation-timing-function: linear;
-    animation-iteration-count: 5;
+    animation-iteration-count: 3;
     animation-duration: 6s;
 
     -webkit-transform-style: preserve-3d;
@@ -405,10 +426,6 @@ button:focus {
 
   .crossrates p {
     font-size: 1.23rem;
-  }
-
-  .form-btn {
-
   }
 
 }
@@ -455,4 +472,24 @@ button:focus {
     font-size: 1.5rem;
   }
 
+}
+
+/* Styles for temporary elements */
+
+.converter {
+  .input-currency-loading-message,
+  .input-currency-error-message {
+    color:red;
+    font-size:1.5rem;
+    font-weight: bold;
+    position:absolute;
+    z-index: 2;
+    padding: 0;
+    max-width:640px;
+    display: block;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-top: -16px;
+  }
 }

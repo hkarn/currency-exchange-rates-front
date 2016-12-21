@@ -40,5 +40,10 @@ will expand the selector as checkboxes in a overlapping window when clicked. Bec
 I have seperated the cross-rates table page to make it more accessible via bookmark. The idea is you can create a link to table once
 then bookmark it and have easy access to a cross-table relevant to the currencies you use. By seperating the page the number of requests and resources loaded when using a table bookmark directly can be reduced. For instance the cross-rate.html does not load Bootstrap, nor all the CSS or make all the ajax calls for geo-location etc.
 
+
+### Additonal notes
+
+There are various things. DOM manipulation in general that might be more effencient to do using jQuery or Bootstrap since they are already included anyway. But is not just to practice vanilla JS.
+
 <br><br>
   ![alt text](https://files.itslearning.com/data/1821/303/Lernia_logo_orange_liten.jpg "Lernia Logo")
