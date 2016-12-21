@@ -3,7 +3,7 @@ Author: Håkan Arnoldson
 For Webaplications at Lernia YH
 */
 !function (window,document,undefined) {
-//main enclosure
+//main closure
 "use strict";
 
 window.onload = function() {
@@ -55,17 +55,17 @@ ajax(cols, rows, i);
    method = "GET",
    url = "https://api.coinbase.com/v2/exchange-rates?currency=" + cols[i].trim();
     xhr.open(method, url, true);
-    xhr.onreadystatechange = (function (cols, rows, i, ajax) {
-      return function() {                           //WHY DO WE NEED A RETURN HERE?
-        if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-          var data = JSON.parse(xhr.responseText);
-
-          printColumn(cols[i], rows, data.data.rates);
-          i++;
-          if (i < cols.length) {
+    xhr.onreadystatechange = (function (cols, rows, i) {
+      return function() {                                                               //onreadystatechange is a closure. the return function ()
+        if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {              //is necessary to run code inside this closure
+          var data = JSON.parse(xhr.responseText);                                      //variable are feeded into the closure and it ends with calling the
+                                                                                        //ajax function again initation a new call with i++ on completion of a call
+          printColumn(cols[i], rows, data.data.rates);                                  //until desired number of calls is reached
+          i++;                                                                          //each call prints a column in the table with exchange rate data collected for the
+          if (i < cols.length) {                                                        //current position in cols
             ajax(cols, rows, i);
-          } else {
-
+          } else {                                                                      //this slower then making all calls at once but gives more control booth of the order
+                                                                                        //and spammy behaviour. maybe this kind of this is better pre-processed in a back-end that can also filter absusive request?
             // LOADING COMPLETED ()
             // LOADING COMPLETED ()
             // LOADING COMPLETED ()
@@ -82,7 +82,7 @@ ajax(cols, rows, i);
           document.body.style.backgroundColor = "black";
         };
       };
-    })(cols, rows, i, ajax);
+    })(cols, rows, i);
     xhr.send();
   }
 
@@ -94,7 +94,7 @@ function printColumn(col, rows, rates) {
 
   var ratesout = [];
   for (var i = 0; i < rows.length; i++) {
-    ratesout[i] = rates[rows[i]]; //selects by key in object and assigns to possition in array;
+    ratesout[i] = rates[rows[i]]; //selects by key in object and assigns to position in array;
   }
 
   // print to DOM
@@ -142,5 +142,5 @@ function printColumn(col, rows, rates) {
   /* END SNIPPLET */
 
 
-  //end main enclosure
+  //end main closure
 } (this,document);

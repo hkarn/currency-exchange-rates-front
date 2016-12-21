@@ -4,7 +4,7 @@ For Webaplications at Lernia YH
 */
 
 !function (window,document,undefined) {
-//main enclosure
+//main closure
 "use strict";
 
 
@@ -214,7 +214,7 @@ function convertCurrency(unlockme) {
     // first return the input back to the user in our standard format.
     // this could be usefull if the user for instance used another decimal separator then . and got unexpected
     // results from our code removing the thousand seperators
-    document.getElementById('from-currency-amount').value = accounting.formatNumber(accounting.toFixed(amount, 2), 2, " ");
+    document.getElementById('from-currency-amount').value = accounting.formatNumber(accounting.toFixed(amount, decimalsCalc(amount)), decimalsCalc(amount), " ");
 
     //FROM->TO conversion
     convertCurrencyCalculator(amount, document.getElementById('from-currency').value, document.getElementById('to-currency').value, document.getElementById('answer-currency-amount'), unlockme);
@@ -227,7 +227,7 @@ function convertCurrency(unlockme) {
 
     if (testIfIntorDec(amount)) {
       //again return the sanitized input back to its origin making sure output is correct
-      document.getElementById('answer-currency-amount').value = accounting.formatNumber(accounting.toFixed(amount, 2), 2, " ");
+      document.getElementById('answer-currency-amount').value = accounting.formatNumber(accounting.toFixed(amount, decimalsCalc(amount)), decimalsCalc(amount), " ");
 
       //TO->FROM conversion
       convertCurrencyCalculator(amount, document.getElementById('to-currency').value, document.getElementById('from-currency').value, document.getElementById('from-currency-amount'), unlockme);
@@ -282,8 +282,9 @@ function convertCurrency(unlockme) {
 */
 
 function convertCurrencyCalculator(amount, base, target, output, unlockme) {
+  console.log(target);
 
-  var inputcompare = accounting.formatNumber(accounting.toFixed(amount, 2), 2, " ") + base + output.id;
+  var inputcompare = accounting.formatNumber(accounting.toFixed(amount, decimalsCalc(amount)), decimalsCalc(amount), " ") + base + target + output.id;
 
   if (window.usersLastConvInput != inputcompare) {
 
@@ -310,7 +311,7 @@ function convertCurrencyCalculator(amount, base, target, output, unlockme) {
       .done(function(data) {
         if (data.data.rates[target] != 0) { //the API is returning zero for all prices if the rates dont exist currenty.
           var result = data.data.rates[target] * amount;
-          output.value = accounting.formatNumber(accounting.toFixed(result, 2), 2, " ");
+          output.value = accounting.formatNumber(accounting.toFixed(result, decimalsCalc(result)), decimalsCalc(result), " ");
         } else {
           // go into XAU issue fallback NOT IMPLEMENTED YET but use own backend code towards quandl for fallback
           //on differnt API (coinbase had an error not providing gold rates when this was made)
@@ -416,5 +417,13 @@ function selectedToArray(select) {
   return seloptions;
 }
 
-//end main enclosure
+function decimalsCalc(x) {
+//return 2 if number is 1 or greater else return 4
+  if (x < 1) {
+    return 4;
+  } else {
+    return 2;
+  }
+}
+//end main closure
 } (this,document);

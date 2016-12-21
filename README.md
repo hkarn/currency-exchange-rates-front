@@ -21,6 +21,9 @@ Live at [Arnoldson.online](https://arnoldson.online/projects/currency/) or [GitH
   * [Coinbase](https://developers.coinbase.com/api/v2) - Coinbase API is mainly a merchant interface. It does however have some open calls such as proving exchange rates for many currencies as well as the current trading price of Bitcoin and Ethereum at Coinbase.
   * [IPinfo](https://ipinfo.io) - This is a open geo-location API. It returns a guess of the users country, city and ISP based on IP.
 
+#### Comments on APIs
+  Coinbase uses only 2 decimal points for most currencies except Bitcoin, this really is not enough and some rates will just be 0.00. Some data seems to be missing and set to 0.00 for that reason also. However free currency APIs especially including metals and bitcoin are very few. Actually Coinbase and Quandl were the only ones I found. But Quandl provides very raw data that really needs pre-processing back-end to be usefull and that was beyond the scope of this assignment.
+
 
 ### Technologies required by assignment
   * Make some use Bootstrap or alterantive framework.
