@@ -14,11 +14,11 @@ window.onload = function() {
   console.log(cols);
   console.log(rows);
 
-  //PREFORM SATITY CHECK AGAINST /currencies
-  //PREFORM SATITY CHECK AGAINST /currencies
-  //PREFORM SATITY CHECK AGAINST /currencies
-  //PREFORM SATITY CHECK AGAINST /currencies
-  //PREFORM SATITY CHECK AGAINST /currencies
+  //PREFORM SANITY CHECK ON URL AGAINST /currencies
+  //PREFORM SANITY CHECK ON URL AGAINST /currencies
+  //PREFORM SANITY CHECK ON URL AGAINST /currencies
+  //PREFORM SANITY CHECK ON URL AGAINST /currencies
+  //PREFORM SANITY CHECK ON URL AGAINST /currencies
 
   cols = cols.split(',');
   rows = rows.split(',');
@@ -48,6 +48,8 @@ window.onload = function() {
 var i = 0;
 ajax(cols, rows, i);
 
+}
+
  function ajax (cols, rows, i) {
    var xhr = new XMLHttpRequest(),
    method = "GET",
@@ -63,17 +65,28 @@ ajax(cols, rows, i);
           if (i < cols.length) {
             ajax(cols, rows, i);
           } else {
+
             // LOADING COMPLETED ()
+            // LOADING COMPLETED ()
+            // LOADING COMPLETED ()
+            // LOADING COMPLETED ()
+            // LOADING COMPLETED ()
+            document.body.style.backgroundColor = "beige";
+
           };
         } else if (xhr.readyState === XMLHttpRequest.DONE && xhr.status != 200) {
           console.log("FAILED API!");
+          //API IS DEAD
+          //API IS DEAD
+          //API IS DEAD
+          document.body.style.backgroundColor = "black";
         };
       };
     })(cols, rows, i, ajax);
     xhr.send();
   }
 
-}
+
 
 function printColumn(col, rows, rates) {
   console.log(rates);
