@@ -8,12 +8,12 @@ For Webaplications at Lernia YH
 
 window.onload = function() {
 
+  loaderAnimation();
+
   var cols = getUrlVars()["base"];
   var rows = getUrlVars()["pair"];
 
-  console.log(cols);
-  console.log(rows);
-
+  //TODO
   //PREFORM SANITY CHECK ON URL AGAINST /currencies
   //PREFORM SANITY CHECK ON URL AGAINST /currencies
   //PREFORM SANITY CHECK ON URL AGAINST /currencies
@@ -44,6 +44,9 @@ window.onload = function() {
     tbody.appendChild(tr);
   };
 
+  //set width of footer to future width of table
+  document.getElementById('footercell').setAttribute('colspan', cols.length+1);
+
 
 var i = 0;
 ajax(cols, rows, i);
@@ -66,16 +69,12 @@ ajax(cols, rows, i);
             ajax(cols, rows, i);
           } else {                                                                      //this slower then making all calls at once but gives more control booth of the order
                                                                                         //and spammy behaviour. maybe this kind of this is better pre-processed in a back-end that can also filter absusive request?
-            // LOADING COMPLETED ()
-            // LOADING COMPLETED ()
-            // LOADING COMPLETED ()
-            // LOADING COMPLETED ()
-            // LOADING COMPLETED ()
-            document.body.style.backgroundColor = "beige";
+            loadingComplete();
 
           };
         } else if (xhr.readyState === XMLHttpRequest.DONE && xhr.status != 200) {
           console.log("FAILED API!");
+          //TODO
           //API IS DEAD
           //API IS DEAD
           //API IS DEAD
@@ -89,12 +88,13 @@ ajax(cols, rows, i);
 
 
 function printColumn(col, rows, rates) {
-  console.log(rates);
+
   // format rates
 
   var ratesout = [];
   for (var i = 0; i < rows.length; i++) {
     ratesout[i] = rates[rows[i]]; //selects by key in object and assigns to position in array;
+    ratesout[i] = accounting.formatNumber(accounting.toFixed(ratesout[i], 4), 4, " ");
   }
 
   // print to DOM
@@ -117,6 +117,34 @@ function printColumn(col, rows, rates) {
 
 
 };
+
+
+function loaderAnimation() {
+  var dots = document.getElementsByClassName('loading-dot');
+  var extradelay = 0;
+  for (var i = 0; i < dots.length; i++) {
+      setTimeout(function(dots, i){
+        dots[i].style.visibility = "visible";
+        if (i >= 2) {
+          setTimeout(function(){
+            var el = document.getElementsByClassName('loading-dot');
+            for (var i = 0; i < el.length; i++) {
+              el[i].style.visibility = "hidden";
+            }
+            if (document.getElementById('loading').style.display != "none") {
+              loaderAnimation();
+            }
+          }, 350);
+        }
+      }, 350+extradelay, dots, i);
+      extradelay += 350;
+  }
+}
+
+function loadingComplete() {
+  document.getElementById('loading').style.display = "none";
+  document.getElementById('theTable').style.display = "table";
+}
 
   /*
     START SNIPPLET

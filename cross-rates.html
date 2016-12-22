@@ -9,21 +9,38 @@
   <title>Currency rates - Cross-rate table</title>
   <meta name="description" content="Currency cross-rates tables and converter.">
 
-  <!--<link rel="stylesheet" href="css/cross-rates.min.css" />-->
+  <link rel="stylesheet" href="css/cross-rates.min.css" />
 
 
 </head>
 <body>
   <script src="dependencies/accounting-js-open-exchange-rates/accounting.min.js"></script>
   <script src="js/cross-rates.js"></script>
-  <a href="index.html">Take me home!</a>
-  <table>
+
+
+  <div id="loading">
+    Loading table<span class="loading-dot">.</span><span class="loading-dot">.</span><span class="loading-dot">.</span>
+  </div>
+  <table id="theTable">
+    <caption>Exchange rates</caption>
     <thead id="tHead">
 
     </thead>
     <tbody id="tBody">
 
     </tbody>
+    <tfoot>
+      <tr>
+        <td id="footercell">
+          Data from Coinbase
+        </td>
+      </tr>
+    </tfoot>
   </table>
+
+  <footer>
+    <a href="index.html">Go back to the main page.</a>
+  </footer>
+
 
 </body>

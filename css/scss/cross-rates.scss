@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono');
+
+$font-stack: 'Roboto', sans-serif;
+$font-stack-mono:  'Roboto Mono', monospace;
+$header-bgcolor: orange;
+$header-color: #000;
+$table-bgcolor1: rgba(225,225,225,1);
+$table-bgcolor2: rgba(195,195,195,1);
+$link-color: orange;
+
+body {
+  font-family: $font-stack;
+  font-size: 16px;
+}
+
+caption {
+  font-size: 1.89em;
+  padding: 12px 0;
+}
+
+td,
+th {
+  vertical-align: middle;
+  border: 0;
+  padding: 7px;
+  margin: 2px;
+
+  &:empty {
+    background-color: transparent;
+  }
+}
+
+  th {
+    text-align: center;
+  }
+
+  td {
+    text-align: right;
+    font-family: $font-stack-mono;
+  }
+
+  th {
+    background-color: $header-bgcolor;
+    color: $header-color;
+    font-size: 1.08em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+tbody {
+
+  tr:nth-of-type(2n) {
+    td {
+      background-color: $table-bgcolor1;
+    }
+  }
+
+  tr:nth-of-type(2n+1) {
+    td {
+      background-color: $table-bgcolor2;
+    }
+  }
+}
+
+#footercell {
+  background-color: transparent;
+  text-align: left;
+  font-size: .75em;
+  font-family: $font-stack;
+}
+
+#loading {
+  font-size: 2.05em;
+  color: #666;
+  text-align:center;
+  padding-top: 150px;
+
+  & .loading-dot {
+    visibility: hidden;
+  }
+}
+
+#theTable {
+  display: none;
+  margin: 0 auto;
+}
+
+a,
+a:link,
+a:visited {
+  color: $link-color;
+  text-decoration: none;
+  border-bottom: $link-color dotted 1px;
+
+  &:hover {
+    border: 0;
+  }
+
+}
