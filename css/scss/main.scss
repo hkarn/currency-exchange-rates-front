@@ -389,6 +389,16 @@ button:focus {
 
 .spin {
     display: inline-block;
+
+    /* There is a bug with 3d animations in Safari causing clipping issues
+    Trying to correct with some extra styling removing it from the flow.
+    This does not solve the clipping issue on the element itself.
+    But it does prevent the bug from interfering with other elements causing display issues
+    */
+    position:relative;
+    z-index: 1000;
+
+
     -webkit-animation-name: spinner;
     -webkit-animation-timing-function: linear;
     -webkit-animation-iteration-count: 3;

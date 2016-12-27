@@ -22,27 +22,20 @@
   <!-- START NAVBAR -->
   <nav id="main-nav">
     <span class="spin">Forex <i class="fa fa-exchange" aria-hidden="true"></i></span>
-    <span class="hidden-xs menu-list">
-      <ul>
-        <li class="menu-item"><a href="https://arnoldson.online/"><i class="fa fa-folder-open" aria-hidden="true"></i> Portfolio</a></li>
-        <li class="menu-item"><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i> LinkedIn</a></li>
-        <li class="menu-item"><a href="#"><i class="fa fa-github-square" aria-hidden="true"></i> GitHub</a></li>
-      </ul>
-    </span>
     <!--START BOOTSTRAP DROPDOWN -->
-    <span class="visible-xs-inline dropdown">
-      <button class="btn-default dropdown-toggle nav-drop-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="dropdown" id="contactMenu">
+      <button class="btn-default dropdown-toggle nav-drop-btn visible-xs-inline" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Contact
-      <i class="fa fa-caret-down" aria-hidden="true"></i>
+      <span class="caret"></span>
       </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id="dropdownToggle">
         <li class="menu-item">
           <a href="#"><i class="fa fa-folder-open" aria-hidden="true"></i> Portfolio</a>
         </li>
-        <li>
+        <li class="menu-item">
           <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i> LinkedIn</a>
         </li>
-        <li>
+        <li class="menu-item">
           <a href="#"><i class="fa fa-github-square" aria-hidden="true"></i> GitHub</a>
         </li>
       </ul>

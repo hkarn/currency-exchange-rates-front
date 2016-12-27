@@ -11,8 +11,40 @@ For Webaplications at Lernia YH
 window.usersLastConvInput = "";
 //prevents button spam by keeping track of last input
 
+window.onresize = function() {
+  /* Resize listener that removes bootstrap classes on media query activation for nav
+  Bootstrap was too much and too specific CSS to override so I used this options
+  It also caused a wierd conflict in Safari only with the 3d-animation that made the menu go invisible
+  when just trying to solve this by CSS overrides
+
+  This issue also comes from starting the design without Bootstrap. Since Bootstrap is overkill
+  for my intended design. But later finding that using Bootstrap was requred by the assignment specs.
+
+  It would have been easier to simply not use bootstrap and make my own dropdown.
+  I tried using a bootstrap collapsable for the button only but it does not well inline at all when the entire nav bar isnt bootstrap.
+  Doing that much modification of Bootstrap also seemed a bit overkill, since you would probably not have used it in the first place in such a scenario
+  */
+
+  menuToggle();
+
+};
+
+function menuToggle() {
+  if (window.getComputedStyle(document.getElementsByClassName('nav-drop-btn')[0]).getPropertyValue('display') == 'none') {
+    //if media query has activated to show hide the dropdown button
+
+    document.getElementById('contactMenu').className = "menu-list";
+    document.getElementById('dropdownToggle').className = "";
+  } else {
+    document.getElementById('contactMenu').className = "dropdown";
+    document.getElementById('dropdownToggle').className = "dropdown-menu";
+  }
+}
+
 
 window.onload = function() {
+
+  menuToggle();  //sets the menu classes right for display width
 
 
   /* get main data */
