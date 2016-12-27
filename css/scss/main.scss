@@ -170,7 +170,20 @@ h1 {
   }
 }
 
+@media screen and (min-width: 768px) {
 
+  .menu-item {
+    &::after {
+      content: "|";
+      margin: 0 10px;
+    }
+
+    &:first-of-type::before {
+      content: "|";
+      margin-right: 10px;
+    }
+  }
+}
 
 .form-in {
   vertical-align: bottom;

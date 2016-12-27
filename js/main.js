@@ -74,7 +74,12 @@ window.onload = function() {
       loadingComplete();
     })
     .fail(function() {
-      loadingFailed();
+
+
+      //  loadingFailed();
+      //DEBUG FORCE LOAD
+      loadingComplete();
+
     });
   });
   /* get main data ends */
