@@ -62,6 +62,8 @@ window.onload = function() {
       dataType: 'text'
   }))
   .done(function(curr, ip, codes) {
+
+    alert(ip);
     printCurrencylists(curr[0]); //$.when creates a "success" array on top of the data. The regular response is at position 0
 
     //move on to try to help out by setting default currencies based on geo-location from ipinfo.io
@@ -107,10 +109,7 @@ window.onload = function() {
     })
     .fail(function() {
 
-
-      //  loadingFailed();
-      //DEBUG FORCE LOAD
-      loadingComplete();
+      loadingFailed();
 
     });
   });
