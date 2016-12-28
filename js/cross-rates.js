@@ -73,12 +73,9 @@ ajax(cols, rows, i);
 
           };
         } else if (xhr.readyState === XMLHttpRequest.DONE && xhr.status != 200) {
-          console.log("FAILED API!");
-          //TODO
           //API IS DEAD
-          //API IS DEAD
-          //API IS DEAD
-          document.body.style.backgroundColor = "black";
+          loadingFailed();
+          document.getElementById('homelink').style.display = "block";
         };
       };
     })(cols, rows, i);
@@ -144,7 +141,31 @@ function loaderAnimation() {
 function loadingComplete() {
   document.getElementById('loading').style.display = "none";
   document.getElementById('theTable').style.display = "table";
+  document.getElementById('homelink').style.display = "block";
+
 }
+
+function loadingFailed() {
+  eraseAllChildren(document.getElementById('loading-failed'));
+  var t1 = document.createTextNode ("Ohh no! Coinbase appears to be sleeping, please ");
+  var t2 = document.createTextNode ("try again");
+  var t3 = document.createTextNode (".");
+
+  var a = document.createElement("A");
+  a.setAttribute('href', '.');
+  a.appendChild(t2);
+
+  document.getElementById('loading-failed').appendChild(t1);
+  document.getElementById('loading-failed').appendChild(a);
+  document.getElementById('loading-failed').appendChild(t3);
+  document.getElementById('loading').style.display = "none";
+};
+
+function eraseAllChildren(node) {
+  while (node.hasChildNodes()) {
+    node.removeChild(node.lastChild);
+  };
+};
 
   /*
     START SNIPPLET

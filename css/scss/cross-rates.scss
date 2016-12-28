@@ -69,7 +69,8 @@ tbody {
   font-family: $font-stack;
 }
 
-#loading {
+#loading,
+#loading-failed {
   font-size: 2.05em;
   color: #666;
   text-align:center;
@@ -96,4 +97,10 @@ a:visited {
     border: 0;
   }
 
+}
+
+#homelink {
+  display: none;
+  margin-top: 30px;
+  text-align: center;
 }

@@ -47,6 +47,17 @@ window.onload = function() {
   menuToggle();  //sets the menu classes right for display width
 
 
+  /*rewrite LinkedIn links if client language is set to prefer swedish */
+  if (navigator.language.substring(0, 2) == "sv") {
+    var els = Array.prototype.slice.call(document.getElementsByClassName('linkedin-link'));
+    console.log(els);
+    els.forEach(function(el,i) {
+      els[i].setAttribute('href', 'https://www.linkedin.com/in/arnoldson/sv');
+    });
+  }
+
+
+
   /* get main data */
   $.when(
     $.ajax({
