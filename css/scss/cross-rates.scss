@@ -84,6 +84,14 @@ tbody {
 #theTable {
   display: none;
   margin: 0 auto;
+
+  & a,
+  & a:link,
+  & a:visited,
+  & a:active {
+    color: inherit;
+    border: none;
+  }
 }
 
 a,
