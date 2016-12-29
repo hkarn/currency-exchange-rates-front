@@ -1,6 +1,6 @@
 /*
 Author: Håkan Arnoldson
-For Webaplications at Lernia YH
+For Web applications at Lernia YH
 */
 
 !function (window,document,undefined) {
