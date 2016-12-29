@@ -32,21 +32,34 @@ Live at [Arnoldson.online](https://arnoldson.online/projects/currency/) or [GitH
 
 ### Method & report
 
+####Design & API selection
+
 Design based a one column mobile first design. After some elements have been made to show inline on larger screens.
-I started by testing the APIs before doing any layout and style. I changed to API from Fixer to Coinbase because I wanted to
-include Bitcoin and Gold prices that Fixer doesn't support. Since the Coinbase API support all currencies on Fixer and more more there was no point in using Fixer. Using two APIs without merging them in a back-end to a new API would also, I think, have been rather unnecessarily complicated.
+I started by testing the APIs before doing any layout and style. I changed to API from Fixer to Coinbase because I wanted to include Bitcoin and Gold prices that Fixer doesn't support. Since the Coinbase API support all currencies on Fixer and more there was no point in using Fixer. Using two APIs without merging them in a back-end to a new API would also, I think, have been rather unnecessarily complicated.
+
+
+####Problem with selectors
+
 Selectors are not easy to style good across browsers. In IE11 the default selector arrow is still shown but not in other browsers. They also have different vertical alignment in different browsers. I eventually made it ok enough across most browsers, all I have found that are left of inconsistencies are the extra arrows in IE.
 Multiple selectors seem ok across browsers, but OS X has a setting to hide scrollbars that affect them too.
 Multiple selectors do however not show the content on mobile browsers. It will simply say "0 selected" and the mobile browsers
 will expand the selector as checkboxes in a overlapping window when clicked. Because of this we can increase the height of the box to show multiple options only on larger devices.
 
-I have separated the cross-rates table page to make it more accessible via bookmark. The idea is you can create a link to table once
-then bookmark it and have easy access to a cross-table relevant to the currencies you use. By separating the page the number of requests and resources loaded when using a table bookmark directly can be reduced. For instance the cross-rate.html does not load Bootstrap, nor all the CSS or make all the ajax calls for geo-location etc.
+
+#### Two-page idea
+
+I have separated the cross-rates table page to make it more accessible via bookmark. The idea is you can create a link to a table once. Then bookmark it and have easy access to a cross-table relevant to the currencies you use. By separating the page the number of requests and resources loaded when using a table bookmark directly can be reduced. For instance the cross-rate.html does not load Bootstrap, nor all the CSS and JS or make all the ajax calls for geo-location etc.
+
+
+####Problem with API
+
+There seems to be some bugs or bad data in the Coinbase API for seldom used currencies. In particular the gold price which seems inverted. I contacted them about the gold rate being broken and they said they have filed a bug-report but will probably not get around to fixing it anytime soon. As for the other issues it seems to come from too low precision in the API, only 2 decimal places are used for everything but Bitcoin that uses four.
+This roughness in the API is ok for the assignment but since I want to use the cross-rates table myself later also I was thinking of doing a work around using Quandl for this until Coinbase gets it fixed. Though that will not be included in the assignment handin.
 
 
 ### Additional notes
 
-There are various things. DOM manipulation in general that might be more efficient to do using jQuery or Bootstrap since they are already included anyway. But is not just to practice vanilla JS.
+There are various things. DOM manipulation in general that might be more efficient to do using jQuery or Bootstrap since they are already included anyway. But I didn't do it to get more practice with vanilla JS.
 
 <br><br>
   ![alt text](https://files.itslearning.com/data/1821/303/Lernia_logo_orange_liten.jpg "Lernia Logo")

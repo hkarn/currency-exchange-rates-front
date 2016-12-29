@@ -1,12 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono');
 
+/*
+Author: Håkan Arnoldson
+For Webaplications at Lernia YH
+*/
+
+/***************************
+  SCSS VARIABLES
+***************************/
 $font-stack: 'Roboto', sans-serif;
 $font-stack-mono:  'Roboto Mono', monospace;
 $header-bgcolor: orange;
 $header-color: #000;
-$table-bgcolor1: rgba(225,225,225,1);
-$table-bgcolor2: rgba(195,195,195,1);
+$table-bgcolor1: rgba(230,230,230,1);
+$table-bgcolor2: rgba(200,200,200,1);
 $link-color: orange;
+
+
+/***************************
+  GENERAL TAG SELECTORS
+***************************/
 
 body {
   font-family: $font-stack;
@@ -62,24 +75,21 @@ tbody {
   }
 }
 
-#footercell {
-  background-color: transparent;
-  text-align: left;
-  font-size: .75em;
-  font-family: $font-stack;
-}
+a,
+a:link,
+a:visited {
+  color: $link-color;
+  text-decoration: none;
+  border-bottom: $link-color dotted 1px;
 
-#loading,
-#loading-failed {
-  font-size: 2.05em;
-  color: #666;
-  text-align:center;
-  padding-top: 150px;
-
-  & .loading-dot {
-    visibility: hidden;
+  &:hover {
+    border: 0;
   }
 }
+
+/***************************
+  TABLE SPECIFIC SELECTORS
+***************************/
 
 #theTable {
   display: none;
@@ -94,18 +104,34 @@ tbody {
   }
 }
 
-a,
-a:link,
-a:visited {
-  color: $link-color;
-  text-decoration: none;
-  border-bottom: $link-color dotted 1px;
-
-  &:hover {
-    border: 0;
-  }
-
+#footercell {
+  background-color: transparent;
+  text-align: left;
+  font-size: .75em;
+  font-family: $font-stack;
 }
+
+
+/***************************
+  LOADING...
+***************************/
+
+#loading,
+#loading-failed {
+  font-size: 2.05em;
+  color: #666;
+  text-align:center;
+  padding-top: 150px;
+
+  & .loading-dot {
+    visibility: hidden;
+  }
+}
+
+
+/***************************
+  RETURN LINK
+***************************/
 
 #homelink {
   display: none;
