@@ -50,7 +50,6 @@ window.onload = function() {
   /*rewrite LinkedIn links if client language is set to prefer swedish */
   if (navigator.language.substring(0, 2) == "sv") {
     var els = Array.prototype.slice.call(document.getElementsByClassName('linkedin-link'));
-    console.log(els);
     els.forEach(function(el,i) {
       els[i].setAttribute('href', 'https://www.linkedin.com/in/arnoldson/sv');
     });
@@ -74,7 +73,6 @@ window.onload = function() {
   }))
   .done(function(curr, ip, codes) {
 
-    alert(ip);
     printCurrencylists(curr[0]); //$.when creates a "success" array on top of the data. The regular response is at position 0
 
     //move on to try to help out by setting default currencies based on geo-location from ipinfo.io
@@ -329,7 +327,6 @@ function convertCurrency(unlockme) {
 */
 
 function convertCurrencyCalculator(amount, base, target, output, unlockme) {
-  console.log(target);
 
   var inputcompare = accounting.formatNumber(accounting.toFixed(amount, decimalsCalc(amount)), decimalsCalc(amount), " ") + base + target + output.id;
 

@@ -54,7 +54,7 @@ I have separated the cross-rates table page to make it more accessible via bookm
 ####Problem with API
 
 There seems to be some bugs or bad data in the Coinbase API for seldom used currencies. In particular the gold price which seems inverted. I contacted them about the gold rate being broken and they said they have filed a bug-report but will probably not get around to fixing it anytime soon. As for the other issues it seems to come from too low precision in the API, only two decimal places are used for everything but Bitcoin that uses four.
-This roughness in the API is ok for the assignment but since I want to use the cross-rates table myself later also I was thinking of doing a work around using Quandl for this until Coinbase gets it fixed. Though that will not be included in the assignment handin.
+This roughness in the API is ok for the assignment but since I want to use the cross-rates table myself later also I was thinking of doing a work around using Quandl for this until Coinbase gets it fixed. Though that will not be included in the assignment hand-in.
 
 
 ### Additional notes
