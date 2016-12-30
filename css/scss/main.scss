@@ -92,6 +92,7 @@ button:focus {
   text-align: center;
 }
 
+
 /***************************
   BACKGROUND IMAGE ADJUST
 ***************************/
@@ -246,7 +247,7 @@ button:focus {
 .spin {
     display: inline-block;
 
-    /* There is a bug with 3d animations in Safari causing clipping issues
+    /* There is a bug with rotateY in Safari causing clipping issues.
     Trying to correct with some extra styling removing it from the flow.
     This does not solve the clipping issue on the element itself.
     But it does prevent the bug from interfering with other elements causing display issues
@@ -562,7 +563,6 @@ button:focus {
 
     .forktiptext {
     visibility: hidden;
-    //width: 120px;
     background-color: white;
     color: #000;
     text-align: center;
