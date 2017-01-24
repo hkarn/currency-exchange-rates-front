@@ -62,4 +62,4 @@ This roughness in the API is ok for the assignment but since I want to use the c
 There are various things. DOM manipulation in general that might be more efficient to do using jQuery or Bootstrap since they are already included anyway. But I didn't do it because I wanted to get more practice with vanilla JS.
 
 <br><br>
-  ![alt text](https://files.itslearning.com/data/1821/303/Lernia_logo_orange_liten.jpg "Lernia Logo")
+  ![alt text](http://yhguiden.se/files/school/logo/211/download.png "Lernia Logo")
