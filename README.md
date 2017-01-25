@@ -10,11 +10,18 @@ Live at [Arnoldson.online](https://arnoldson.online/projects/currency/) or [GitH
 
 ### Technologies
   * CSS, HTML, JS
-  * Sass
+  * Sass for CSS
   * jQuery
-  * Bootstrap
-  * accounting.js (Open Exchange Rates)
+  * Bootstrap for the collasped drop down contact menu.
+  * accounting.js (library from Open Exchange Rates)
   * Font Awesome
+  * Google Fonts
+
+
+### Tools
+  * Atom with Linter, SASS autocompile, minify etc.
+  * Git and GitHub
+  * LiveReload
 
 
 ### APIs used
