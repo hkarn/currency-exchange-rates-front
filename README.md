@@ -41,8 +41,8 @@ Live at [Arnoldson.online](https://arnoldson.online/projects/currency/) or [GitH
 
 ####Design & API selection
 
-Design based a one column mobile first design. After some elements have been made to show inline on larger screens.
-I started by testing the APIs before doing any layout and style. I changed to API from Fixer to Coinbase because I wanted to include Bitcoin and Gold prices that Fixer doesn't support. Since the Coinbase API support all currencies on Fixer and more, there was no point in using Fixer. Using two APIs without merging them in a back-end to a new API would also, I think, have been rather unnecessarily complicated.
+Design based a one column mobile first design. After that some elements have been made to show inline on larger screens.
+I started by testing the APIs before doing any layout and style. I changed to API from Fixer to Coinbase because I wanted to include Bitcoin and Gold prices that Fixer doesn't support. Since the Coinbase API support all currencies on Fixer and more, there was no point in using Fixer. Using two APIs for the same function without merging them in a back-end to a new API would also, I think, have been rather unnecessarily complicated.
 
 
 ####Problem with selectors
