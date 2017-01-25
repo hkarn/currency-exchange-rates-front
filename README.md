@@ -55,7 +55,8 @@ I have separated the cross-rates table page to make it more accessible via bookm
 
 There seems to be some bugs or bad data in the Coinbase API for seldom used currencies. In particular the gold price which seems inverted. I contacted them about this and they fixed the problem. As for the other issues it seems to come from too low precision in the API, only two decimal places are used for everything but Bitcoin that uses four.
 The low precision makes many rates come out as 0.00, I did make an error handling for this that return N/A on this answer.
-A
+An idea to make this better would be to look for the inverted rate and then translate it back and calculate when the API gives 0.
+For instance when translating USD to XAU it will say zero because 1 USD is less then 0.00... XAU. However we could ask the API for 1 XAU in USD then calculate it back in reverse. I didn't include this solution in the assignment hand-in because that level of error handling was not requried at this level.
 
 
 ### Additional notes
