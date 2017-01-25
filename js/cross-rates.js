@@ -13,7 +13,7 @@ window.onload = function() {
   var cols = getUrlVars()["base"];
   var rows = getUrlVars()["pair"];
 
-  /* We need to preform a basic sanity check on URL variables
+  /* We need to do a basic sanity check on URL variables
      This just checks the format, we will do some further checks if we get a 400
      response when sending them to the API
   */
@@ -138,7 +138,7 @@ function printColumn(col, rows, rates) {
 
 
 /* This functions animates the ... after Loading
-   Launces nestled Timeouts with 350 ms delays to show and hide
+   Launches nestled Timeouts with 350 ms delays to show and hide
 */
 function loaderAnimation() {
   var dots = document.getElementsByClassName('loading-dot');
@@ -207,7 +207,7 @@ function loadingBadRequest(cols,rows) {
   url = "https://api.coinbase.com/v2/currencies";
    xhr.open(method, url, true);
    xhr.onreadystatechange = (function (cols, rows) {
-     //This syntax construct is the same as for the main call to get exchange rates. Look there for explinations.
+     //This syntax construct is the same as for the main call to get exchange rates. Look there for explanation.
      return function() {
        if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
          var data = JSON.parse(xhr.responseText);

@@ -29,7 +29,7 @@ window.onresize = function() {
 };
 
 
-// This function runs at start and on window rezise and changes the menu from dropdown to list or vice versa. See listener above
+// This function runs at start and on window resize and changes the menu from dropdown to list or vice versa. See listener above.
 function menuToggle() {
   if (window.getComputedStyle(document.getElementsByClassName('nav-drop-btn')[0]).getPropertyValue('display') == 'none') {
     //if media query has activated to show hide the dropdown button
@@ -83,7 +83,7 @@ window.onload = function() {
 
     var arrContryCurrency = codes[0].split('\n'); //[0] because $.when adds an array to track success
 
-    var successfull = false;  //we need to keep track of if we managed to set a value of the currency coverted selectors. they need to have a inital value to prevent errors later
+    var successfull = false;  //we need to keep track if we managed to set a value of the currency coverted selectors. They need to have a inital value to prevent errors later.
 
     for (var i = 0; i < arrContryCurrency.length; i++) {
       arrContryCurrency[i] = arrContryCurrency[i].split(',');  //creates a multi-dimensional array arrContryCurrency[pair][0=country, 1=currency]
@@ -145,7 +145,7 @@ window.onload = function() {
 
   document.getElementById('convert-btn').addEventListener("click", function (event) {
     event.preventDefault();
-    //lock it down immediatly to preven double clickning until after error handling or ajax
+    //Lock it down immediatly to preven double clicking until after error handling or ajax
     event.target.disabled = true;
     event.target.style.boxShadow = "none";
     event.target.style.transform = "translateX(2px) translateY(2px)";
@@ -246,7 +246,7 @@ function loadingFailed() {
 
 /*
   Function convertCurrency
-  This is the initaliser and error handling for the main conversion
+  This is the initalizer and error handling for the main conversion
 */
 function convertCurrency(unlockme) {
 
