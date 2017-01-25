@@ -20,7 +20,7 @@ window.onload = function() {
 
   var sanity = true;
   if (cols === undefined || rows === undefined || cols == "" || rows == "") {
-    sanity = "I appears you haven't selected enough currencies. Please <a href='index.html'>go back</a> and try again.";
+    sanity = "It appears you haven't selected enough currencies. Please <a href='index.html'>go back</a> and try again.";
   };
 
   cols = cols.split(',');

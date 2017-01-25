@@ -7,9 +7,8 @@ For Web applications at Lernia YH
 //main closure
 "use strict";
 
-
 window.usersLastConvInput = "";
-//prevents button spam by keeping track of last input
+//GLOBAL variable - prevents button spam by keeping track of last input
 
 window.onresize = function() {
   /* Resize listener that removes bootstrap classes on media query activation for nav
@@ -21,7 +20,7 @@ window.onresize = function() {
   for my intended design. But later finding that using Bootstrap was requred by the assignment specs.
 
   It would have been easier to simply not use bootstrap and make my own dropdown.
-  I tried using a bootstrap collapsable for the button only but it does not well inline at all when the entire nav bar isnt bootstrap.
+  I tried using a bootstrap collapsable for the button only but it does not work well inline at all when the entire nav bar isnt bootstrap.
   Doing that much modification of Bootstrap also seemed a bit overkill, since you would probably not have used it in the first place in such a scenario
   */
 
@@ -29,6 +28,8 @@ window.onresize = function() {
 
 };
 
+
+// This function runs at start and on window rezise and changes the menu from dropdown to list or vice versa. See listener above
 function menuToggle() {
   if (window.getComputedStyle(document.getElementsByClassName('nav-drop-btn')[0]).getPropertyValue('display') == 'none') {
     //if media query has activated to show hide the dropdown button
@@ -353,16 +354,11 @@ function convertCurrencyCalculator(amount, base, target, output, unlockme) {
 
     $.getJSON("https://api.coinbase.com/v2/exchange-rates?currency=" + base)
       .done(function(data) {
-        if (data.data.rates[target] != 0) { //the API is returning zero for all prices if the rates dont exist currenty.
+        if (data.data.rates[target] != 0) { //the API is returning zero for all prices if the rates dont exist currently.
           var result = data.data.rates[target] * amount;
           output.value = accounting.formatNumber(accounting.toFixed(result, decimalsCalc(result)), decimalsCalc(result), " ");
         } else {
-          // go into XAU issue fallback NOT IMPLEMENTED YET but use own backend code towards quandl for fallback
-          //on differnt API (coinbase had an error not providing gold rates when this was made)
-          if (base == "XAU") {
-            output.value = "N/A";
-          } else {
-            output.value = "N/A";
+            output.value = "N/A"; //Prints N/A when the api gives us a rate of 0
           }
         }
         unlockme.disabled = false;
