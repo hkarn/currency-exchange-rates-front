@@ -359,7 +359,6 @@ function convertCurrencyCalculator(amount, base, target, output, unlockme) {
           output.value = accounting.formatNumber(accounting.toFixed(result, decimalsCalc(result)), decimalsCalc(result), " ");
         } else {
             output.value = "N/A"; //Prints N/A when the api gives us a rate of 0
-          }
         }
         unlockme.disabled = false;
         unlockme.removeAttribute('style');
